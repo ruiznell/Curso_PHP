@@ -1,0 +1,16 @@
+
+
+.task-list-item-progress {
+    font-style: italic;
+}
+
+.task-list-item-done{
+    text-decoration: line-through;
+}
+
+.task-list-item-todo{
+    color: red;
+}
+
+
+
