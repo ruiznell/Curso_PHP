@@ -6,7 +6,7 @@
 require "./lib/JSONReader.php";
 require "./lib/searchFuntions.php";
 
-//Model JSONReader(la parte che gestisce i dati della applicazione, por ejemplo una operacion)
+//Model JSONReader(la parte che gestisce i dati della applicazione, por ejemplo una operacion de suma)
 
 $taskList = JSONReader('./dataset/TaskList.json');
 //controller $data = JSONReader() (es el tramite entre el modelo y la vista, por ejemplo presionar la tecla +)
@@ -22,7 +22,7 @@ if(isset($_GET['searchText']))
 
 ?>
 
-<!-- view (vista) visualizzazione / intercetta azione degli utenti-->
+<!-- view (vista) visualizzazione / intercetta azioni dell'utente-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

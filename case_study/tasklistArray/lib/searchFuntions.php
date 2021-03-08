@@ -1,14 +1,15 @@
 <?php
 /**
- * funzione di ordine superiore: è una funzione che restituisce una funzione
- * introduzione a la programazione funzionale - declarativa
+ * Funzione di ordine superiore: è una funzione che restituisce una funzione
+ * Introduzione Programmazione Funzionale - dichiarativo
  */
 function searchText($searchText){
 
-    // searchText es una variable locale dentro de la funcion externa
-    // per fare in modo que serachText sia visibile (ambito) all'interno della funzione anonima 
+    // $searchText : locale 
+    // searchText es una variable local dentro de la funcion externa
+    // per fare il modo che $searchText sia visibile (ambito) all'interno della funzione anonima
+    // devo usare "use"
 
-    //devo usare "use"
     return function ($taskItem) use ($searchText) {
 
         //print_r($taskItem['taskName']);
@@ -22,4 +23,6 @@ function searchText($searchText){
         //print_r($taskItem);
 
     };
+     // se coloca el punto y como (;) despues de la llave porque la funcion funciona como una variable, ejemplo  
+     // return 10 ;
 }

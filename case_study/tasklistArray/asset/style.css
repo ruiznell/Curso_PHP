@@ -1,16 +1,22 @@
 
 
-.task-list-item-progress {
+
+.tasklist-item-progress {
     font-style: italic;
 }
 
-.task-list-item-done{
+.tasklist-item-done {
     text-decoration: line-through;
 }
 
-.task-list-item-todo{
-    color: red;
+.tasklist-item-todo {
+    color:red;
 }
+/* 
+.tasklist-item-sbognato {
+    color:red;
+    text-decoration:blink;
+} */
 
 
 
