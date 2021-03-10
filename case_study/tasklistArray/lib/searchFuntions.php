@@ -3,7 +3,7 @@
  * Funzione di ordine superiore: è una funzione che restituisce una funzione
  * Introduzione Programmazione Funzionale - dichiarativo
  */
-function searchText($searchText){
+function _searchText($searchText){
 
     // $searchText : locale 
     // searchText es una variable local dentro de la funcion externa
@@ -23,6 +23,24 @@ function searchText($searchText){
         //print_r($taskItem);
 
     };
-     // se coloca el punto y como (;) despues de la llave porque la funcion funciona como una variable, ejemplo  
+     // se coloca el punto y coma (;) despues de la llave porque la funcion funciona como una variable, ejemplo  
      // return 10 ;
 }
+
+
+/*
+//imperativo
+*/
+//@var string $searchText testo da cercare
+
+/*function searchText($searchText,$taskList){
+    $result = [];
+    foreach ($taskList as $taskItem) {
+        if strpos($taskItem['taskName'], $searchText) !==0 false;
+        {
+            $result[] = $taskItem;
+        }
+    
+    }
+    return $result;
+}*/
