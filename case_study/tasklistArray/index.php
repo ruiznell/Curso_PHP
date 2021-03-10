@@ -11,13 +11,17 @@ require "./lib/searchFuntions.php";
 $taskList = JSONReader('./dataset/TaskList.json');
 //controller $data = JSONReader() (es el tramite entre el modelo y la vista, por ejemplo presionar la tecla +)
 
-if(isset($_GET['searchText']))
+if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
 {
     $searchText = trim(filter_var($_GET['searchText'] ,FILTER_SANITIZE_STRING));
-    $taskList = array_filter($taskList,searchText($searchText));
+    //var_dump($searchText, $_GET['searchText']);
+    //die();
+    $taskList = array_filter($taskList,_searchText($searchText));
+    //$taskList = searchText($searchText,$taskList );
 } else {
     $searchText = '';
 }
+
 
 
 ?>
@@ -35,7 +39,6 @@ if(isset($_GET['searchText']))
 <body>
     <form action="index.php">
         <input type="text"  value="<?= $searchText ?>" name="searchText" >
-
         <button type="submit">cerca</button>
     </form>
     <ul>
