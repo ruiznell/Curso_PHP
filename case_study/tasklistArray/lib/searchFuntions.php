@@ -3,7 +3,7 @@
  * Funzione di ordine superiore: è una funzione che restituisce una funzione
  * Introduzione Programmazione Funzionale - dichiarativo
  */
-function _searchText($searchText){
+function searchText($searchText){
 
     // $searchText : locale 
     // searchText es una variable local dentro de la funcion externa
@@ -11,7 +11,9 @@ function _searchText($searchText){
     // devo usare "use"
 
     return function ($taskItem) use ($searchText) {
-
+        // [0] => "prendere il latte" --> 12 != --> true
+        // [1] => "fare benzina" --> false  --> false !== false
+        // [2] => "latte per il viso" --> 0  !== falso ---> true
         //print_r($taskItem['taskName']);
         //echo "sto cercando $searchText";
         
@@ -23,7 +25,7 @@ function _searchText($searchText){
         //print_r($taskItem);
 
     };
-     // se coloca el punto y coma (;) despues de la llave porque la funcion funciona como una variable, ejemplo  
+     // se coloca el punto y coma (;) despues de la llave porque la funcion se comporta como una variable, ejemplo  
      // return 10 ;
 }
 
@@ -34,22 +36,13 @@ function _searchText($searchText){
  * @return callback La funzione che verrà utilizzata da array_filter 
  */
 function searchStatus(string $status){
-    //...
+    return function ($taskItem) use ($status) {
+        
+        $result = strpos($taskItem['status'], $status) !==false;
+        return $result;
+
+    };
 }
 
-/*
-//imperativo
-*/
-//@var string $searchText testo da cercare
 
-/*function searchText($searchText,$taskList){
-    $result = [];
-    foreach ($taskList as $taskItem) {
-        if strpos($taskItem['taskName'], $searchText) !==0 false;
-        {
-            $result[] = $taskItem;
-        }
-    
-    }
-    return $result;
-}*/
+
