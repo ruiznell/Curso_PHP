@@ -1,6 +1,6 @@
 <?php
 
-
+print_r($_GET);
 
 //carico le dipendenze
 require "./lib/JSONReader.php";
@@ -40,6 +40,14 @@ if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
     <form action="index.php">
         <input type="text"  value="<?= $searchText ?>" name="searchText" >
         <button type="submit">cerca</button>
+        <div id="status">
+        <input type="radio" name='status' value="progress" id="progress">
+        <label for="progress">stai facendo</label>
+        <input type="radio" name='status' value="done" id="done">
+        <label for="done">fatti</label>
+        <input type="radio" name='status' value="todo" id="todo">
+        <label for="todo">da fare</label>
+        </div>
     </form>
     <ul>
         <?php
