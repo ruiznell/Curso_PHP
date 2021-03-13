@@ -10,7 +10,7 @@ require "./lib/searchFuntions.php";
 
 $taskList = JSONReader('./dataset/TaskList.json');
 //controller $data = JSONReader() (es el tramite entre el modelo y la vista, por ejemplo presionar la tecla +)
-
+$all="";
 if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
 {
     $searchText = trim(filter_var($_GET['searchText'] ,FILTER_SANITIZE_STRING));
@@ -34,7 +34,12 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
     //$taskList = array_filter($taskList,searchStatus($status));
     //$taskList = searchText($searchText,$taskList );
 } else {
-    $status = '';
+
+   
+    if(isset($_GET['$all'])){
+    $taskList = var_dump($taskList);
+    
+}
 }
 
 ?>
@@ -55,8 +60,7 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
         <input type="text"  value="<?= $searchText ?>" name="searchText" >
         <button type="submit">cerca</button>
 
-        <!--<input type="text"  value="<?= $status ?>" name="searchStatus" >
-        <button type="submit">cerca</button>-->
+        
         <div id="status">
         
         <input type="radio"  name='searchStatus'  value="todo" id="todo" <?php if ($status == "todo") echo "checked";?>>
@@ -68,7 +72,7 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
         <input type="radio" name='searchStatus'  value="done" id="done" <?php if ($status == "done") echo "checked";?> >
         <label for="done">fatti</label>       
 
-        <input type="radio" name='taskList'  value="all" id="all" <?php if ($taskList == "all") echo "checked";?> >
+        <input type="radio" name='searchStatus'  value="all" id="all" <?php if ($status == "all") echo "checked";?> >
         <label for="all">visualizza tutti</label>
         </div>
     </form>
