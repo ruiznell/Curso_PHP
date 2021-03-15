@@ -10,7 +10,7 @@ require "./lib/searchFuntions.php";
 
 $taskList = JSONReader('./dataset/TaskList.json');
 //controller $data = JSONReader() (es el tramite entre el modelo y la vista, por ejemplo presionar la tecla +)
-$all="";
+
 if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
 {
     $searchText = trim(filter_var($_GET['searchText'] ,FILTER_SANITIZE_STRING));
