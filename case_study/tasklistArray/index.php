@@ -23,9 +23,9 @@ if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
     $searchText = '';
 }
 
-if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
+if(isset($_GET['status']) && trim($_GET['status']) !== '')
 {
-    $status = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
+    $status = trim(filter_var($_GET['status'] ,FILTER_SANITIZE_STRING));
    
     $taskList = array_filter($taskList,searchStatus($status));
     
@@ -61,16 +61,16 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
         
         <div id="status">
         
-        <input type="radio"  name='searchStatus'  value="todo" id="todo" <?php if ($status == "todo") echo "checked";?>>
+        <input type="radio"  name='status'  value="todo" id="todo" <?php if ($status == "todo") echo "checked";?>>
         <label for="todo">da fare</label>
 
-        <input type="radio" name='searchStatus'  value="progress" id="progress" <?php if ($status == "progress") echo "checked";?> >
+        <input type="radio" name='status'  value="progress" id="progress" <?php if ($status == "progress") echo "checked";?> >
         <label for="progress">stai facendo</label>
         
-        <input type="radio" name='searchStatus'  value="done" id="done" <?php if ($status == "done") echo "checked";?> >
+        <input type="radio" name='status'  value="done" id="done" <?php if ($status == "done") echo "checked";?> >
         <label for="done">fatti</label>       
 
-        <input type="radio" name='searchStatus'  value="all" id="all" <?php if ($status == "all") echo "checked";?> >
+        <input type="radio" name='status'  value="all" id="all" <?php if ($status == "all") echo "checked";?> >
         <label for="all">visualizza tutti</label>
         </div>
     </form>
