@@ -14,11 +14,10 @@ $taskList = JSONReader('./dataset/TaskList.json');
 if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
 {
     $searchText = trim(filter_var($_GET['searchText'] ,FILTER_SANITIZE_STRING));
-    //$searchStatus = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
+    //$searchText = trim(filter_var($_GET['searchText'] ,FILTER_SANITIZE_STRING));
     //var_dump($searchText, $_GET['searchText']);
     //die();
     $taskList = array_filter($taskList,searchText($searchText));
-    //$taskList = array_filter($taskList,searchStatus($status));
     //$taskList = searchText($searchText,$taskList );
 } else {
     $searchText = '';
@@ -27,27 +26,9 @@ if(isset($_GET['searchText']) && trim($_GET['searchText']) !== '')
 if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
 {
     $status = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
-    //$searchStatus = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
-    //var_dump($searchText, $_GET['searchText']);
-    //die();
+   
     $taskList = array_filter($taskList,searchStatus($status));
-    //$taskList = array_filter($taskList,searchStatus($status));
-    //$taskList = searchText($searchText,$taskList );
-
-} else {
-    $status = '';
     
-}
-
-if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
-{
-    $status = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
-    //$searchStatus = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
-    //var_dump($searchText, $_GET['searchText']);
-    //die();
-    $taskList = array_filter($taskList,searchStatus($status));
-    //$taskList = array_filter($taskList,searchStatus($status));
-    //$taskList = searchText($searchText,$taskList );
     if ($status==('all')){
         $taskList = JSONReader('./dataset/TaskList.json');
     }
@@ -55,6 +36,7 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
     $status = '';
     
 }
+
 
 
 
