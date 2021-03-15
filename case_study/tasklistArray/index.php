@@ -33,13 +33,29 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
     $taskList = array_filter($taskList,searchStatus($status));
     //$taskList = array_filter($taskList,searchStatus($status));
     //$taskList = searchText($searchText,$taskList );
+
 } else {
     $status = '';
-   
-    /*if(isset($_GET['$all'])){
-    $taskList = var_dump($taskList);*/
     
 }
+
+if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
+{
+    $status = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
+    //$searchStatus = trim(filter_var($_GET['searchStatus'] ,FILTER_SANITIZE_STRING));
+    //var_dump($searchText, $_GET['searchText']);
+    //die();
+    $taskList = array_filter($taskList,searchStatus($status));
+    //$taskList = array_filter($taskList,searchStatus($status));
+    //$taskList = searchText($searchText,$taskList );
+    if ($status==('all')){
+        $taskList = JSONReader('./dataset/TaskList.json');
+    }
+} else {
+    $status = '';
+    
+}
+
 
 
 ?>
@@ -82,6 +98,8 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
             
             $status = $task['status'];
             $taskName = $task['taskName'];
+           
+            
            
         ?>
 
