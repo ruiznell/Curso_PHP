@@ -34,13 +34,13 @@ if(isset($_GET['searchStatus']) && trim($_GET['searchStatus']) !== '')
     //$taskList = array_filter($taskList,searchStatus($status));
     //$taskList = searchText($searchText,$taskList );
 } else {
-
+    $status = '';
    
-    if(isset($_GET['$all'])){
-    $taskList = var_dump($taskList);
+    /*if(isset($_GET['$all'])){
+    $taskList = var_dump($taskList);*/
     
 }
-}
+
 
 ?>
 
