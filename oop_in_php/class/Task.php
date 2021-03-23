@@ -14,7 +14,7 @@ class Task {
 		$task = new DateTime($this->expirationDate);
 		//con esta operacion se puede manipular la data
 		
-		return $task > $today;
+		return $task < $today;
 	}
 	
 	
