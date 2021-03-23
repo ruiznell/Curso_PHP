@@ -13,7 +13,7 @@ foreach ($taskList as $taskArray) {
 
 	$taskObj = new Task();
 	$taskObj-> id = $taskArray['id'];
-	$taskObj->taskName = $taskArray['taskName'];
+	$taskObj-> taskName = $taskArray['taskName'];
 	$taskObj-> status = $taskArray['status'];
 	$taskObj-> expirationDate= $taskArray['expirationDate'];
 
@@ -37,12 +37,12 @@ $taskListObj = array_map(function($taskArray){
 
 	$taskObj = new Task();
 	$taskObj-> id = $taskArray['id'];
-	$taskObj->taskName = $taskArray['taskName'];
+	$taskObj-> taskName = $taskArray['taskName'];
 	$taskObj-> status = $taskArray['status'];
 	$taskObj-> expirationDate= $taskArray['expirationDate'];
 	return $taskObj;
 
-},$taskList);
+}, $taskList);
 
 ?>
 
