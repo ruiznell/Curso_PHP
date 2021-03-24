@@ -1,34 +1,15 @@
 <?php
 require "./vendor/testTools/testTool.php";
-require "./lib/searchFunctions.php";
+require "./test/searchFunctions.php";
 
 
 $testCases = [
     [
-        'search' => 'progress',
+        'search' => 'expirationDate',
         'expectedCount' => 2,
-        'description' => 'ricerca di status in progress'
-    ],
-    [
-        'search' => 'todo',
-        'expectedCount' => 4,
-        'description' => 'ricerca di status in todo'
-    ],
-    [
-        'search' => 'done',
-        'expectedCount' => 3,
-        'description' => 'ricerca di status in done'
-    ],
-    [
-        'search' => 'all',
-        'expectedCount' => 9,
-        'description' => 'ricerca all status'
-    ],
-    [
-        'search' => '',
-        'expectedCount' => 9,
-        'description' => 'ricerca status "" (empty string)'
-    ],
+        'description' => 'ricerca di date scadute'
+    ]
+    
 ];
 
 $mockTaskList = array(
@@ -47,7 +28,7 @@ $mockTaskList = array(
 foreach ($testCases as $testCase) {
 
     extract($testCase);
-    $actual = array_filter($mockTaskList, searchStatus($search));
+    $actual = array_filter($mockTaskList, isExpired($search));
     
     assertEquals('array', gettype($actual),'il risultato è un ');
 
