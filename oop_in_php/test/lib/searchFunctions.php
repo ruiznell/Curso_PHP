@@ -70,15 +70,3 @@ function coloreStatus($status)
             return "secondary";
         }
     }
-
-    function isExpired():bool
-
-{
-              //$today è una istanza della classe DateTime
-    $today = new DateTime();
-    $task = new DateTime($this->expirationDate);
-    //con esta operacion se puede manipular la data
-    
-    return $task < $today;
-}
-?>
