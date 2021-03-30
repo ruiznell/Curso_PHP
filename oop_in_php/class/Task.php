@@ -13,11 +13,20 @@ class Task {
 		$today = new DateTime();
 		$task = new DateTime($this->expirationDate);
 		//con esta operacion se puede manipular la data
+		if($today->format('Ymd') === $task->format('Ymd')){
+			return false;
+		}
 		
-		return $task < $today;
+		return $today ->getTimestamp() > $task ->getTimestamp();
+
+		
+		//return $task < $today;
 	}
 	
-	
+	public function getExpirationDate()
+	{
+		return $this->expirationDate;
+	}
 	//gettype($today) object
 	//get_class($today) DateTime
 
